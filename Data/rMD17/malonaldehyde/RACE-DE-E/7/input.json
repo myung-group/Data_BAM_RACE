@@ -1,0 +1,54 @@
+{
+    "model" : "race",
+    "trainer" : "mve",
+    "active_fn" : "identity",
+    "fname_traj" : "../../dataset/malonaldehyde_train.traj",
+    "ntrain" : 950 ,
+    "nvalid" : 50,
+    "cutoff" : 5.0,
+    "avg_num_neighbors": 9,
+    "num_radial_basis" : 8,
+    "num_species" : 3,
+    "element" : [1, 6, 8],
+    "nbatch" : 5,
+    "hidden_irreps" : "64x0o + 64x0e + 64x1o + 64x1e + 64x2o + 64x2e  + 64x3o + 64x3e",
+    "nlayers" : 5,
+    "features_dim" : 128,
+    "pbc" : false,
+    "NN" : {
+    	    "data_seed" :  201797,
+	    "init_seed" :  201768,
+    	    "learning_rate" : 0.01,
+    	    "nepoch" : 10000,
+    	    "nsave": 1,
+    	    "restart" : false,
+    	    "fname_pkl" : "chpt.pkl",
+	    "frc_lambda" : 1000,
+	    "l2_lambda" : 0.0,
+	    "patience" : 50,
+            "decay_factor" :0.9,
+	    "ema_decay" : 0.99
+    },
+    "train" : {
+	    "fname_log" : "loss_train.out",
+	    "train_set_out" : "train_dataset.pkl",
+    	    "valid_set_out" : "valid_dataset.pkl",
+    	    "enr_ave_std_out": "ave_std.pkl"
+    },
+    "predict" : {
+    	    "start" : true,
+	    "fname_log" : "predict_valid.out",
+	    "nbatch" : 1,
+	    "predict_train_out" : "train_result.pkl",
+	    "predict_valid_out" : "valid_result.pkl",
+	    "test" : {
+	            "start" :  true,
+		    "fname_log" : "predict_test.out",
+		    "fname_traj" : "../../dataset/malonaldehyde_test.traj",
+		    "ndata" : 1000,
+		    "test_set_out" : "test_dataset.pkl",
+		    "predict_test_out" : "test_result.pkl"
+ 	    }
+    }
+}
+

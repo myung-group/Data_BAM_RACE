@@ -1,0 +1,53 @@
+{
+    "model" : "race",
+    "trainer" : "base",
+    "active_fn" : "relu",
+    "fname_traj" : "psb3_delta_sq_train_lattice.traj",
+    "ntrain" : 40000,
+    "nvalid" : 4375,
+    "cutoff" : 6.0,
+    "avg_num_neighbors": 13,
+    "num_radial_basis" : 8,
+    "num_species" : 3,
+    "element" : [1, 6, 7],
+    "nbatch" : 5,
+    "hidden_irreps" : "64x0o + 64x0e + 64x1o + 64x1e + 64x2o + 64x2e",
+    "nlayers" : 5,
+    "features_dim" : 64,
+    "pbc" : false,
+    "NN" : {
+            "data_seed" : 10811,
+            "init_seed" : 10812,
+            "learning_rate" : 0.01,
+            "nepoch" : 2000,
+            "nsave": 5,
+            "restart" : false,
+            "fname_pkl" : "chpt.pkl",
+            "frc_lambda" : 50,
+            "l2_lambda" : 0.0,
+            "patience" : 50,
+            "decay_factor" :0.9,
+            "ema_decay" : 0.99
+    },
+    "train" : {
+            "fname_log" : "loss-train.out",
+            "train_set_out" : "train_dataset.pkl",
+            "valid_set_out" : "valid_dataset.pkl",
+            "enr_ave_std_out": "ave_std.pkl"
+    },
+    "predict" : {
+            "start" : false,
+            "fname_log" : "predict_valid.out",
+            "nbatch" : 1,
+            "predict_train_out" : "train_result.pkl",
+            "predict_valid_out" : "valid_result.pkl",
+            "test" : {
+                    "start" : true,
+                    "fname_log" : "predict_test.out",
+                    "fname_traj" : "psb3_delta_sq_test_lattice.traj",
+                    "ndata" : 4375,
+                    "test_set_out" : "test_dataset.pkl",
+                    "predict_test_out" : "test_result.pkl"
+            }
+    }
+}

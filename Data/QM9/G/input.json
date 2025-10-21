@@ -1,0 +1,53 @@
+{
+    "model" : "race",
+    "trainer" : "base",
+    "active_fn" : "identity",
+    "fname_traj" : "qm9_train.traj",
+    "ntrain" : "../qm9_data_generate/qm9_train.traj" ,
+    "nvalid" : "../qm9_data_generate/qm9_valid.traj",
+    "cutoff" : 5.0,
+    "avg_num_neighbors": 28,
+    "num_radial_basis" : 8,
+    "num_species" : 5,
+    "element" : [1, 6, 7, 8, 9],
+    "nbatch" : 5,
+    "hidden_irreps" : "64x0o + 64x0e + 64x1o + 64x1e + 64x2o + 64x2e",
+    "nlayers" : 5,
+    "features_dim" : 128,
+    "pbc" : false,
+    "NN" : {
+            "data_seed" :  229898,
+            "init_seed" :  229891,
+            "learning_rate" : 0.01,
+            "nepoch" : 2000,
+            "nsave": 1,
+            "restart" : false,
+            "fname_pkl" : "chpt.pkl",
+            "frc_lambda" : 1,
+            "l2_lambda" : 0.0,
+            "patience" : 50,
+            "decay_factor" :0.9,
+            "ema_decay" : 0.99
+    },
+    "train" : {
+            "fname_log" : "loss_train.out",
+            "train_set_out" : "train_dataset.pkl",
+            "valid_set_out" : "valid_dataset.pkl",
+            "enr_ave_std_out": "ave_std.pkl"
+    },
+    "predict" : {
+            "start" : false,
+            "fname_log" : "predict_valid.out",
+            "nbatch" : 1,
+            "predict_train_out" : "train_result.pkl",
+            "predict_valid_out" : "valid_result.pkl",
+            "test" : {
+                    "start" :  true,
+                    "fname_log" : "predict_test.out",
+                    "fname_traj" : "../qm9_data_generate/qm9_test.traj",
+                    "ndata" : 10831,
+                    "test_set_out" : "test_dataset.pkl",
+                    "predict_test_out" : "test_result.pkl"
+            }
+    }
+}

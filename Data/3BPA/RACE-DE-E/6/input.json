@@ -1,0 +1,54 @@
+{
+    "model" : "race",
+    "trainer" : "mve",
+    "active_fn" : "identity",
+    "fname_traj" : "dataset_3BPA/train_300K.xyz",
+    "ntrain" : 450 ,
+    "nvalid" : 50,
+    "cutoff" : 6.0,
+    "avg_num_neighbors": 26,
+    "num_radial_basis" : 8,
+    "num_species" : 4,
+    "element" : [1, 6, 7, 8],
+    "nbatch" : 2,
+    "hidden_irreps" : "64x0o + 64x0e + 64x1o + 64x1e + 64x2o + 64x2e  + 64x3o + 64x3e",
+    "nlayers" : 5,
+    "features_dim" : 128,
+    "pbc" : false,
+    "NN" : {
+    	    "data_seed" :  120,
+	    "init_seed" :  127,
+    	    "learning_rate" : 0.01,
+    	    "nepoch" : 5000,
+    	    "nsave": 5,
+    	    "restart" : false,
+    	    "fname_pkl" : "chpt.pkl",
+	    "frc_lambda" : 100,
+	    "l2_lambda" : 0.0,
+	    "patience" : 50,
+            "decay_factor" :0.9,
+	    "ema_decay" : 0.99
+    },
+    "train" : {
+	    "fname_log" : "loss_train.out",
+	    "train_set_out" : "train_dataset.pkl",
+    	    "valid_set_out" : "valid_dataset.pkl",
+    	    "enr_ave_std_out": "ave_std.pkl"
+    },
+    "predict" : {
+    	    "start" : true,
+	    "fname_log" : "predict_valid.out",
+	    "nbatch" : 1,
+	    "predict_train_out" : "train_result.pkl",
+	    "predict_valid_out" : "valid_result.pkl",
+	    "test" : {
+		    "start" :  true,
+		    "fname_log" : "predict_300K.out",
+		    "fname_traj" : "dataset_3BPA/test_300K.xyz",
+		    "ndata" : 1669,
+		    "test_set_out" : "300K_dataset.pkl",
+		    "predict_test_out" : "300K_result.pkl"
+ 	    }
+    }
+}
+

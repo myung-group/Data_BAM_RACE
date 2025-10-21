@@ -1,0 +1,55 @@
+{
+    "model" : "race",
+    "trainer" : "varf",
+    "active_fn" : "identity",
+    "fname_traj" : "../../data/new_liquid.traj",
+    "ntrain" : "../../data/liquid_bn_train.traj",
+    "nvalid" : "../../data/liquid_bn_valid.traj",
+    "cutoff" : 3.0,
+    "avg_num_neighbors": 19,
+    "num_radial_basis" : 8,
+    "num_species" : 2,
+    "element" : [5, 7],
+    "nbatch" : 2,
+    "hidden_irreps" : "32x0o + 32x0e + 16x1o + 16x1e + 8x2o + 8x2e",
+    "nlayers" : 5,
+    "features_dim" : 32,
+    "pbc" : true,
+    "NN" : {
+            "data_seed" : 40026,
+	    "init_seed" : 50035,
+            "learning_rate" : 0.1,
+            "nepoch" : 1000,
+            "nsave": 2,
+            "restart" : false,
+            "enr_avg_per_element": {},
+            "fname_pkl" : "chpt.pkl",
+            "enr_lambda" : 1,
+            "frc_lambda" : 1,
+            "l2_lambda" : 0.0,
+            "patience" : 50,
+            "decay_factor" :0.9,
+            "ema_decay" : 0.99
+    },
+    "train" : {
+            "fname_log" : "loss_train.out",
+            "train_set_out" : "train_dataset.pkl",
+            "valid_set_out" : "valid_dataset.pkl",
+            "enr_ave_std_out": "ave_std.pkl"
+    },
+    "predict" : {
+            "start" : true,
+            "fname_log" : "predict_valid.out",
+            "nbatch" : 1,
+            "predict_train_out" : "train_result.pkl",
+            "predict_valid_out" : "valid_result.pkl",
+            "test" : {
+                    "start" :  true,
+                    "fname_log" : "predict_solid.out",
+                    "fname_traj" : "../../data/new_solid.traj",
+                    "ndata" : 5000,
+                    "test_set_out" : "solid_dataset.pkl",
+                    "predict_test_out" : "solid_result.pkl"
+            }
+    }
+}
