@@ -1,5 +1,5 @@
 This repository accompanies the paper " **Bayesian E(3)-Equivariant Interatomic Potential with Iterative Restratification of Many-body Message Passing** " by Soohaeng Yoo Willow, Tae Hyeon Park, Gi Beom Sim, Sung Wook Moon, Seung Kyu Min, D. ChangMo Yang, Hyun Woo Kim, Juho Lee, and Chang Woo Myung.
-* ``Data/``` contains inputis contains inputs used for training each MLP model and several non-public datasets used in the paper..
+* ```Data/``` contains inputis contains inputs used for training each MLP model and several non-public datasets used in the paper..
 
 * ```Figures/``` contains figures of the paper that obtained from ```Data/```.
 
